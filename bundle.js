@@ -17,6 +17,9 @@
         increment() {
           this._counter += 1;
         }
+        decrement() {
+          this._counter -= 1;
+        }
       };
       module.exports = CounterModel2;
     }
@@ -30,6 +33,10 @@
           this._model = model2;
           document.querySelector("#increment-btn").addEventListener("click", () => {
             this._model.increment();
+            this.display();
+          });
+          document.querySelector("#decrement-btn").addEventListener("click", () => {
+            this._model.decrement();
             this.display();
           });
         }

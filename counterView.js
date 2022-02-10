@@ -7,6 +7,11 @@ class CounterView {
       this._model.increment();
       this.display();
     });
+
+    document.querySelector('#decrement-btn').addEventListener('click', () => {
+      this._model.decrement();
+      this.display();
+    });
   }
 
   display() {
