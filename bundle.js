@@ -9,7 +9,13 @@
     "counterModel.js"(exports, module) {
       var CounterModel2 = class {
         constructor() {
-          this.count = 0;
+          this._counter = 0;
+        }
+        getCounter() {
+          return this._counter;
+        }
+        increment() {
+          this._counter += 1;
         }
       };
       module.exports = CounterModel2;
@@ -22,9 +28,13 @@
       var CounterView2 = class {
         constructor(model2) {
           this._model = model2;
+          document.querySelector("#increment-btn").addEventListener("click", () => {
+            this._model.increment();
+            this.display();
+          });
         }
         display() {
-          document.querySelector("#count").innerText = this._model.count;
+          document.querySelector("#counter").innerText = this._model.getCounter();
         }
       };
       module.exports = CounterView2;
